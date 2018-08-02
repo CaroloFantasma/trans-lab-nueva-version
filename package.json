@@ -1,7 +1,7 @@
 {
   "name": "trans-lab-nueva-version",
   "version": "1.0.0",
-  "description": "nueva versión de proyecto Tanslab\u001b[D\u001b[L\u001b[D\u001b[D\u001b[D\u001b[tr\u001b[C\u001b[DansLab\u001b[C\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C",
+  "description": "nueva versión de proyecto Tanslab",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -11,5 +11,10 @@
     "bip"
   ],
   "author": "Carolina Lastra",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "save-dev": "^2.0.0"
+  }
 }
