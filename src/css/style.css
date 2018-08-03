@@ -3,6 +3,30 @@ body {
   text-align: center;
 }
 
+#menuNav{
+  display: none;
+}
+
+#screenTwo{
+  display: none;
+}
+
+#screenThree{
+  display: none;
+}
+
+#screenFour{
+  display: none;
+}
+
+#screenFive{
+  display: none;
+}
+
+#screenSix{
+  display: none;
+}
+
 #firstImage {
   width: 40%;
   padding-top: 20%;
