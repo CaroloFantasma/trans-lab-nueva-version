@@ -5,6 +5,7 @@ body {
 
 #menuNav{
   display: none;
+  z-index: 1;
 }
 
 #screenTwo{
@@ -229,6 +230,7 @@ padding: 0%;
 #inputMoney {
   width: 100%;
 }
+
 
 @media(min-width: 768px){ /* esta medida se encuentra en bootstrap-> overview-> responsive breakpoints */
   .menu{

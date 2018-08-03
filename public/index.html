@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../src/css/style.css">
     <title>Welcome to Firebase Hosting</title>
-
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.3.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -15,51 +17,266 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
+    
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  
+   <!-- Inicio menú -->
+   <header id="menuNav">
+    <div class="pos-f-t">
+      <nav class="navbar navbar-dark barMenu">
+        <button onclick="toggleMenu()" class="navbar-toggler" type="button" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+      <nav id="sideMenu" class="nav flex-column float-left menu  menu_closed">
+        <div onclick="toggleMenu()" class="close_button">
+          <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="menu_content">
+          <a class="nav-link" href="#">Ver saldo</a>
+          <a class="nav-link" href="#">Calcular tarifa</a>
+          <a class="nav-link" href="#">Perfil</a>
+          <a class="nav-link" href="#">Preguntas frecuentes</a>
+          <a class="nav-link" href="#">Home</a>
+        </div>
+      </nav>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </header>
+  <!-- Fin menú -->
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <!-- Inicio primera pantalla -->
+  <div class="container-fluid" id="screenOne">
+    <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-10">
+        <img src="../src/img/imagen.png" id="firstImage" alt="logo tuerca">
+      </div>
+      <div class="col-1">
+      </div>
+    </div>
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
+    <div class="rowForm">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1" id="label">TRANS-LAB</label>
+          <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electrónico">
+          <small id="emailHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"></label>
+          <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña de 8 números">
+        </div>
+        <div class="form-group form-check">
+        </div>
+        <button type="button" onclick="selecScreen()" class="btn btn-primary" id="btn">Iniciar sesión</button>
+      </form>
+    </div>
+
+    <div class="rowThree">
+      <p id="wrong"></p>
+      <p>¿Olvidaste tu contraseña?</p>
+      <p>¿NO TIENES CUENTA?
+        <a href="" id="register">
+          <b>Regístrate</b>
+        </a>
+      </p>
+    </div>
+  </div>
+  <!-- Fin primera pantalla -->
+
+  <!-- Inicio segunda pantalla -->
+  <div class="container-fluid" id="screenTwo">
+    <div class="row">
+      <div id="" class="col-sm-12">
+        <div class="col-sm-11">
+          <button class="ppalMenu" id="showBalance">VER SALDO</button>
+        </div>
+        <div class="col-sm-11">
+          <button class="ppalMenu" id="showPrice">CALCULAR TARIFA</button>
+        </div>
+        <div class="col-sm-11">
+          <button class="ppalMenu" id="showProfile">PERFIL</button>
+        </div>
+        <div class="col-sm-11">
+          <button class="ppalMenu" id="showQuestions">PREGUNTAS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin segunda pantalla -->
+
+  <!-- Inicio pantalla perfil usuario -->
+  <div class="container-fluid userImage" id="screenThree">
+    <div class="rowUserimg">
+      <!-- Second row start -->
+      <div class="col-sm-12 rowUserimg2">
+        <img src="../src/img/person.png" id="userImg" alt="">
+      </div>
+    </div>
+    <!--Second row end-->
+
+    <div class="row">
+      <input class="form-control userName">
+    </div>
+
+    <div class="row">
+      <input class="form-control cardNumber" placeholder="Número tarjeta">
+    </div>
+
+    <div class="row">
+      <button type="submit" class="btn btn-primary" id="btnCard">AGREGAR TARJETA</button>
+    </div>
+
+    <div class="col-sm-1 cardsRegistered">
+    </div>
+  </div>
+  <!-- Fin pantalla perfil usuario -->
+
+  <!-- Inicio pantalla preguntas frecuentes -->
+  <div class="container-fluid questions" id="screenFour">
+    <div class="">
+      <p>Preguntas frecuentes</p>
+    </div>
+    <div class="row answers">
+      <div id="accordion" role="tablist">
+        <div class="card">
+          <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                ¿Cuánto es el monto de la carga?
+              </a>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="card-body">
+              Carga Mínima Normal $ 1.000. - Carga Mínima Estudiantes $ 400 . - Carga Máxima $ 25.500. Si el monto a cargar es inferior
+              a $1.000, acércate a los Centros bip! y encontrarás una caja que no está sujeta a mínimo de carga.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" role="tab">
+            <h5 class="mb-0">
+              <a class="" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                ¿Caduca el saldo de mi tarjeta ?
+              </a>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby>
+            <div class="card-body">
+              La vigencia de la tarjeta bip! es indefinida en tanto se utilice o se cargue al menos una vez durante un período de un año,
+              en caso contrario, habiendo transcurrido dicho período, las cuotas de transportes serán suspendidas hasta que
+              la tarjeta bip! registre una nueva carga dentro del año siguiente. Si habiendo transcurrido 2 años desde el
+              último movimiento de la tarjeta bip! ésta no presenta usos o cargas, las cuotas quedarán irrevocablemente vencidas,
+              no existiendo la posibilidad de solicitar la transferencia del saldo a otra tarjeta o el reembolso de dichas
+              cuotas de transporte.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin pantalla preguntas frecuentes -->
+
+  <!-- Inicio pantalla calcular saldo -->
+  <div class="container-fluid" id="screenFive">
+    <div class="row">
+      <br>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-10">
+        <input type="number" id="cardNumber" placeholder="Número de tarjeta">
+      </div>
+      <br>
+      <div class="col-sm-1">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+
+      <div class="col-sm-5">
+        <span id="tarifa">Tarifa</span>
+        <span> Tarjeta </span>
+        <div class="input-group mb-3">
+          <select class="Seleccione su tarjeta" id="inputPrice">
+            <option selected>seleccione</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <select class="Seleccione su tarjeta" id="inputCard">
+            <option selected>seleccione</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-10">
+        <button type="button" id="btnCalculate" class="btn btn-secondary btn-lg">Calcular</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- Fin pantalla calcular saldo -->
+
+  <!-- Inicio pantalla ver saldo -->
+  <div class="container-fluid" id="screenSix">
+    <div class="row">
+      <br>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-10">
+        <input type="number" id="cardNumber" placeholder="Número de tarjeta">
+      </div>
+      <br>
+      <div class="col-sm-1">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+
+      <div class="col-sm-5">
+        <div class="input-group mb-3">
+          <select class="Seleccione su tarjeta" id="inputMoney">
+            <option selected>seleccione</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-10">
+        <button type="button" id="btnCalculate" class="btn btn-secondary btn-lg">Ver saldo</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- Fin pantalla ver saldo -->
+
+      <!-- bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+  crossorigin="anonymous"></script>
+
+<!-- Javascript -->
+<script src="../src/js/main.js"></script>
+<script src="../src/js/app.js"></script>
+<script src="../src/js/menu.js"></script>
+<script src="../src/js/profile.js"></script>
+<script src="../src/js/calculate.js"></script>
   </body>
 </html>
