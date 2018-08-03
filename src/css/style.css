@@ -167,6 +167,45 @@ padding: 0%;
   padding: 0%;
 }
 
+#cardNumber {
+  width: 80%;
+  background: inherit;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+}
+
+#inputPrice {
+  width: 49%;
+  display: inline-block;
+  margin-right: 2%;
+}
+
+#inputCard {
+  width: 49%;
+  /* margin-right: 2%; */
+}
+
+#btnCalculate {
+  background-color: #F6A800;
+  color: white;
+  width: 40%;
+  padding: 0%;
+  font-size: 16px;
+}
+
+#tarifa {
+  margin-right: 40%;
+}
+
+#cardoption {
+  margin-right: 10%;
+}
+
+#inputMoney {
+  width: 100%;
+}
+
 @media(min-width: 768px){ /* esta medida se encuentra en bootstrap-> overview-> responsive breakpoints */
   .menu{
       width: 20vw; /*El menú va a tomar este ancho con pantallas de 768px hacia arriba*/
