@@ -35,11 +35,11 @@
           <span aria-hidden="true">&times;</span>
         </div>
         <div class="menu_content">
-          <a class="nav-link" href="#">Ver saldo</a>
-          <a class="nav-link" href="#">Calcular tarifa</a>
-          <a class="nav-link" href="#">Perfil</a>
-          <a class="nav-link" href="#">Preguntas frecuentes</a>
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" onclick="showBalance()" href="#">Ver saldo</a>
+          <a class="nav-link" onclick="showPrice()" href="#">Calcular tarifa</a>
+          <a class="nav-link" onclick="showProfile()" href="#">Perfil</a>
+          <a class="nav-link" onclick="showQuestions()" href="#">Preguntas frecuentes</a>
+          <a class="nav-link" onclick="showHome()" href="#">Home</a>
         </div>
       </nav>
     </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="form-group form-check">
         </div>
-        <button type="button" onclick="selecScreen()" class="btn btn-primary" id="btn">Iniciar sesión</button>
+        <button type="button" onclick="selectScreen()" class="btn btn-primary" id="btn">Iniciar sesión</button>
       </form>
     </div>
 
@@ -92,16 +92,16 @@
     <div class="row">
       <div id="" class="col-sm-12">
         <div class="col-sm-11">
-          <button class="ppalMenu" id="showBalance">VER SALDO</button>
+          <button class="ppalMenu" onclick="showBalance()" id="showBalance">VER SALDO</button>
         </div>
         <div class="col-sm-11">
-          <button class="ppalMenu" id="showPrice">CALCULAR TARIFA</button>
+          <button class="ppalMenu" onclick="showPrice()" id="showPrice">CALCULAR TARIFA</button>
         </div>
         <div class="col-sm-11">
-          <button class="ppalMenu" id="showProfile">PERFIL</button>
+          <button class="ppalMenu" onclick="showProfile()" id="showProfile">PERFIL</button>
         </div>
         <div class="col-sm-11">
-          <button class="ppalMenu" id="showQuestions">PREGUNTAS</button>
+          <button class="ppalMenu" onclick="showQuestions()" id="showQuestions">PREGUNTAS</button>
         </div>
       </div>
     </div>
@@ -182,7 +182,7 @@
   </div>
   <!-- Fin pantalla preguntas frecuentes -->
 
-  <!-- Inicio pantalla calcular saldo -->
+  <!-- Inicio pantalla ver saldo -->
   <div class="container-fluid" id="screenFive">
     <div class="row">
       <br>
@@ -225,9 +225,9 @@
 
     </div>
   </div>
-  <!-- Fin pantalla calcular saldo -->
+  <!-- Fin pantalla ver saldo -->
 
-  <!-- Inicio pantalla ver saldo -->
+  <!-- Inicio pantalla calcular saldo -->
   <div class="container-fluid" id="screenSix">
     <div class="row">
       <br>
@@ -262,7 +262,7 @@
 
     </div>
   </div>
-  <!-- Fin pantalla ver saldo -->
+  <!-- Fin pantalla calculat saldo -->
 
       <!-- bootstrap -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

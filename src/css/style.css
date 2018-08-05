@@ -5,7 +5,6 @@ body {
 
 #menuNav{
   display: none;
-  z-index: 1;
 }
 
 #screenTwo{
@@ -167,6 +166,7 @@ padding: 0%;
 
 #sideMenu {
   background-color: #fafafa;
+  z-index: 1;
 }
 
 .iconMenu {
