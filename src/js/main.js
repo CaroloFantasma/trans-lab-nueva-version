@@ -9,3 +9,17 @@
 //     document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
 //   }
 // });
+
+let infoBip = null;
+
+fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=`)
+    .then(response => response.json())
+    .then(data => {
+        infoBip = data;
+        console.log(data);
+    })
+    .catch(error => {
+      console.error("No fue posible completar la solicitud.");
+    });
+
+    
