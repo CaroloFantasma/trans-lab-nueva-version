@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
   <link rel="stylesheet" href="../src/css/style.css">
-    <title>TransLab</title>
-  </head>
-  <body>
-  
-   <!-- Inicio menú -->
-   <header id="menuNav">
+  <title>TransLab</title>
+</head>
+
+<body>
+
+  <!-- Inicio menú -->
+  <header id="menuNav">
     <div class="pos-f-t">
       <nav class="navbar navbar-dark barMenu">
         <button onclick="toggleMenu()" class="navbar-toggler" type="button" aria-controls="navbarToggleExternalContent" aria-expanded="false"
@@ -29,6 +31,7 @@
           <a class="nav-link" onclick="showProfile()" href="#">Perfil</a>
           <a class="nav-link" onclick="showQuestions()" href="#">Preguntas frecuentes</a>
           <a class="nav-link" onclick="showHome()" href="#">Home</a>
+          <a class="nav-link" onclick="logOut()" href="#">Cerrar sesión</a>
         </div>
       </nav>
     </div>
@@ -50,17 +53,17 @@
     <div class="rowForm">
       <form>
         <div class="form-group">
-          <label for="exampleInputEmail1" id="label">TRANS-LAB</label>
-          <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electrónico">
+          <label for="exampleInputEmail" id="label">TRANS-LAB</label>
+          <input class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Correo electrónico">
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1"></label>
-          <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña de 8 números">
+          <label for="exampleInputPassword"></label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña de 8 números">
         </div>
         <div class="form-group form-check">
         </div>
-        <button type="button" onclick="selectScreen()" class="btn btn-primary" id="btn">Iniciar sesión</button>
+        <button type="button" onclick="logIn()" class="btn btn-primary" id="btn">Iniciar sesión</button>
       </form>
     </div>
 
@@ -68,9 +71,7 @@
       <p id="wrong"></p>
       <p>¿Olvidaste tu contraseña?</p>
       <p>¿NO TIENES CUENTA?
-        <a href="" id="register">
-          <b>Regístrate</b>
-        </a>
+        <a href="" onclick="signUp()" type="submit" id="register"><b>Regístrate</b></a>
       </p>
     </div>
   </div>
@@ -108,19 +109,18 @@
     <!--Second row end-->
 
     <div class="row">
-      <input class="form-control userName">
+      <input class="form-control userName" id="showEmail" readonly="readonly">
     </div>
 
     <div class="row">
-      <input class="form-control cardNumber" placeholder="Número tarjeta">
+      <input class="form-control cardNumber" id="numberOfBip" placeholder="Número tarjeta">
     </div>
 
     <div class="row">
-      <button type="submit" class="btn btn-primary" id="btnCard">AGREGAR TARJETA</button>
+      <button type="submit" onclick="addCard()" class="btn btn-primary" id="btnCard">AGREGAR TARJETA</button>
     </div>
 
-    <div class="col-sm-1 cardsRegistered">
-    </div>
+    <div id="cardOptions"></div>
   </div>
   <!-- Fin pantalla perfil usuario -->
 
@@ -171,7 +171,7 @@
   </div>
   <!-- Fin pantalla preguntas frecuentes -->
 
-  <!-- Inicio pantalla ver saldo -->
+  <!-- Inicio pantalla calcular saldo -->
   <div class="container-fluid" id="screenFive">
     <div class="row">
       <br>
@@ -194,16 +194,16 @@
         <span> Tarjeta </span>
         <div class="input-group mb-3">
           <select class="Seleccione su tarjeta" id="inputPrice">
-            <option selected>seleccione</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option selected>Elija tarifa</option>
+            <option value="1">760</option>
+            <option value="2">680</option>
+            <option value="3">630</option>
           </select>
           <select class="Seleccione su tarjeta" id="inputCard">
-            <option selected>seleccione</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option selected>Elija tarjeta</option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
           </select>
         </div>
       </div>
@@ -214,16 +214,16 @@
 
     </div>
   </div>
-  <!-- Fin pantalla ver saldo -->
+  <!-- Fin pantalla calcular saldo -->
 
-  <!-- Inicio pantalla calcular saldo -->
+  <!-- Inicio pantalla ver saldo -->
   <div class="container-fluid" id="screenSix">
     <div class="row">
       <br>
       <div class="col-sm-1">
       </div>
       <div class="col-sm-10">
-        <input type="number" id="cardNumber" placeholder="Número de tarjeta">
+        <input type="number" id="cardNumberBip" placeholder="Número de tarjeta">
       </div>
       <br>
       <div class="col-sm-1">
@@ -235,52 +235,48 @@
       </div>
 
       <div class="col-sm-5">
-        <div class="input-group mb-3">
-          <select class="Seleccione su tarjeta" id="inputMoney">
-            <option selected>seleccione</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+        <div class="input-group mb-3" id="">
         </div>
       </div>
 
       <div class="col-sm-10">
-        <button type="button" id="btnCalculate" class="btn btn-secondary btn-lg">Ver saldo</button>
+        <button type="button" id="btnBalance" class="btn btn-secondary btn-lg">Ver saldo</button>
       </div>
 
     </div>
   </div>
-  <!-- Fin pantalla calcular saldo -->
+  <!-- Fin pantalla ver saldo -->
 
   <!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDs5eecMYQZbk7az_0CCI4aGhdAAsu5HRI",
-    authDomain: "trans-lab-23fba.firebaseapp.com",
-    databaseURL: "https://trans-lab-23fba.firebaseio.com",
-    projectId: "trans-lab-23fba",
-    storageBucket: "trans-lab-23fba.appspot.com",
-    messagingSenderId: "937087731765"
-  };
-  firebase.initializeApp(config);
-</script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDs5eecMYQZbk7az_0CCI4aGhdAAsu5HRI",
+      authDomain: "trans-lab-23fba.firebaseapp.com",
+      databaseURL: "https://trans-lab-23fba.firebaseio.com",
+      projectId: "trans-lab-23fba",
+      storageBucket: "trans-lab-23fba.appspot.com",
+      messagingSenderId: "937087731765"
+    };
+    firebase.initializeApp(config);
+  </script>
 
-      <!-- bootstrap -->
+  <!-- bootstrap -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-  crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-  crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
 
-<!-- Javascript -->
-<script src="../src/js/main.js"></script>
-<script src="../src/js/app.js"></script>
-<script src="../src/js/menu.js"></script>
-<script src="../src/js/profile.js"></script>
-<script src="../src/js/calculate.js"></script>
-  </body>
+  <!-- Javascript -->
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/app.js"></script>
+  <script src="../src/js/menu.js"></script>
+  <script src="../src/js/profile.js"></script>
+  <script src="../src/js/calculate.js"></script>
+  <script src="../src/js/login.js"></script>
+</body>
+
 </html>

@@ -21,6 +21,7 @@ body {
 
 #screenFive{
   display: none;
+  background-color: rgb(199, 200, 201);
 }
 
 #screenSix{
@@ -56,7 +57,7 @@ p{
   color: #F6A800;
 }
 
-#exampleInputEmail1 {
+#userEmail {
   border-color: #F6A800;
 }
 

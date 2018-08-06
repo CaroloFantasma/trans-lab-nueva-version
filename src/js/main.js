@@ -1,18 +1,7 @@
-// document.addEventListener('DOMContentLoaded', function() {
-
-//   try {
-//     let app = firebase.app();
-//     let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-//     document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-//   } catch (e) {
-//     console.error(e);
-//     document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-//   }
-// });
 
 let infoBip = null;
 
-fetch('http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=')
+fetch('http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=20338150')
     .then(response => response.json())
     .then(data => {
         infoBip = data;
@@ -22,57 +11,41 @@ fetch('http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=')
       console.error("No fue posible completar la solicitud.");
     });
 
-    firebase.database().ref('visitas')
+    //Firebase
+    firebase.database().ref('dataBip')
   .limitToLast(50) //filtro para no obtener todos los mensajes
   .once('value')
-  .then((messages) => {
-    console.log("Mensajes >" + JSON.stringify(visitas));
+  .then((bipData) => {
+    console.log("Mensajes >" + JSON.stringify(dataBip));
   })
   .catch(() => {
-
   });
 
-firebase.database().ref('infoBip')
+  firebase.database().ref('dataBip')
   .limitToLast(50)
-  .on('child_added', (newData) => {
-    const time = new Date(newData.val().time);
-    invitadosContainer.innerHTML = `
-    <tr>
-    <td>${newData.val().names}</td>
-    <td>${newData.val().ruts}</td>
-    <td>${newData.val().patentes} </td>
-    <td>${time.getHours()}:${time.getMinutes()} del día ${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}</td>
-    <td><img src="${dataPhoto}" alt="algo" style="width:200px; height:auto;" ></td>
-    </tr> 
-          `+ invitadosContainer.innerHTML;
+  .on('child_added', (newCard) => {
+    cardOptions.innerHTML += `
+    <p>${newCard.val().num}</p>
+          `;
   });
-
 
 // Firebase Database
-// Guarda  ela info en database, llamada visitas
-function sendMessage() {
-  if (inputName.value.length === 0 || null && inputRut.value.length === 0 || null) {
-    alert('Debes ingresar todos los datos solicitados')
+// Guarda  la info en database, llamada infoBip
+function addCard() {
+  if (numberOfBip.value.length === 0 || numberOfBip.value.length > 8) {
+    alert('Debe ingresar información válida')
   } else {
 
-    const name = inputName.value;
-    const rut = inputRut.value;
-    const patente = inputPatente.value;
+    const BipNumber = numberOfBip.value;
     
-    //Para tener una nueva llave en la colección visitas
-    const newMessageKey = firebase.database().ref().child('visitas').push().key;
+    //Para tener una nueva llave en la colección infoBip
+    const newNumberKey = firebase.database().ref().child('infoBip').push().key;
 
-    firebase.database().ref(`visitas/${newMessageKey}`).set({
-      names: name,
-      ruts: rut,
-      patentes: patente,
-      time: Date.now(),
-      foto: dataPhoto
+    firebase.database().ref(`infoBip/${newNumberKey}`).set({
+      num: BipNumber
     });
-    inputName.value = '';
-    inputRut.value = '';
-    inputPatente.value = '';
-    alert('Datos ingresados correctamente, y notificación enviada con éxito');
+    numberOfBip.value = '';
+    alert('Tarjeta guardada con éxito');
   }
 }
     

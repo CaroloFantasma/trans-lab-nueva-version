@@ -1,9 +1,3 @@
-function selectScreen() {
-  document.getElementById('screenOne').style.display = 'none';
-  document.getElementById('screenTwo').style.display = 'block';
-  document.getElementById('menuNav').style.display = 'block';
-};
-
 function showBalance() {
   document.getElementById('screenOne').style.display = 'none';
   document.getElementById('screenTwo').style.display = 'none';
@@ -50,7 +44,6 @@ function showHome() {
   document.getElementById('screenFour').style.display = 'none';
   document.getElementById('screenFive').style.display = 'none';
   document.getElementById('screenSix').style.display = 'none';
-  document.getElementById('menuNav').style.display = 'none';
   document.getElementById('screenTwo').style.display = 'block';
   document.getElementById('menuNav').style.display = 'block';
 };
