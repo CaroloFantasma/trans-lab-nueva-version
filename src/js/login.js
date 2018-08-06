@@ -1,3 +1,4 @@
+//Login de usuario
 window.onload = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {

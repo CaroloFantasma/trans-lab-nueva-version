@@ -1,3 +1,5 @@
+//Subir foto de perfil
+
 function sendPhotoToStorage(){
   const photoFile = photoFileSelector.files[0];
   const fileName = photoFile.name; 

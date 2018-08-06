@@ -1,3 +1,4 @@
+//Fetch, muestra info de tarjeta bip ingresada en el input de ver saldo
 
 btnBalance.addEventListener('click', () => {
   if (cardNumberBip.value.length === 8) {
@@ -12,7 +13,6 @@ fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNumber
     <p class="totalBalance">Fecha saldo: ${data['fechaSaldo']}</p>
     `
   })
-
   .catch(error => {
     console.error("No fue posible completar la solicitud.");
   });
