@@ -12,5 +12,8 @@ function sendPhotoToStorage(){
   task.then(snapshot => snapshot.ref.getDownloadURL())  //url de descarga de la imagen)
       .then(url => {
           console.log("URL del archivo > "+url);
+          let picture = url;
+          document.getElementById('userImg').src = picture;
+ 
       });
 }

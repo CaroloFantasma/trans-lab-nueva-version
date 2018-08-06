@@ -71,7 +71,7 @@
       <p id="wrong"></p>
       <p>¿Olvidaste tu contraseña?</p>
       <p>¿NO TIENES CUENTA?
-          <input id="register" onclick="signUp()" type="button" value="REGÍSTRATE">
+        <input id="register" onclick="signUp()" type="button" value="REGÍSTRATE">
       </p>
     </div>
   </div>
@@ -103,15 +103,17 @@
     <div class="rowUserimg">
       <!-- Second row start -->
       <div class="col-sm-12 rowUserimg2">
-          <!-- <img src="..." alt="..." class="rounded-circle" id="photoFileSelector" onclick="addPhoto()"> -->
-          <input id="photoFileSelector" type="file"> <input id="sendPhoto" type="button" onclick="sendPhotoToStorage()" value="SEND PHOTO">
-
+        <div>
+          <img src="..." alt="..." class="rounded-circle" id="userImg" onclick="addPhoto()">
+        </div>
+        <input id="photoFileSelector" type="file">
+        <input id="sendPhoto" type="button" onclick="sendPhotoToStorage()" value="Subir foto">
       </div>
     </div>
     <!--Second row end-->
 
     <div class="row">
-      <input class="form-control userName" id="showEmail" readonly="readonly">
+      <div id="showEmail"></div>
     </div>
 
     <div class="row">

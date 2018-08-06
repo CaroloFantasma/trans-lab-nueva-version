@@ -84,7 +84,8 @@ p{
 }
 
 #userImg {
-  width: 30%;
+  width: 15%;
+  height: 15%;
   background-color: #F6A800;
 }
 
@@ -98,6 +99,11 @@ p{
 .rowUserimg2 {
 height: 100%;
 padding: 0%;
+}
+
+#showEmail {
+  margin-left: 20%;
+  color: white;
 }
 
 .userName {

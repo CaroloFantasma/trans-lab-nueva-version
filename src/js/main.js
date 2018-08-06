@@ -13,7 +13,7 @@ fetch('http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=20338150')
 
 //Firebase
 firebase.database().ref('dataBip')
-  .limitToLast(50) //filtro para no obtener todos los mensajes
+  .limitToLast(10) //filtro para no obtener todos las tarjetas
   .once('value')
   .then((bipData) => {
     console.log("Mensajes >" + JSON.stringify(dataBip));
@@ -22,7 +22,7 @@ firebase.database().ref('dataBip')
   });
 
 firebase.database().ref('dataBip')
-  .limitToLast(50)
+  .limitToLast(10)
   .on('child_added', (newCard) => {
     cardOptions.innerHTML += `
     <p>${newCard.val().num}</p>
@@ -36,13 +36,16 @@ function addCard() {
     alert('Debe ingresar información válida')
   } else {
 
-    const BipNumber = numberOfBip.value;
+    const BipNumber = numberOfBip.value;  
+    const userEmail = document.getElementById('userEmail').value;
+    showEmail.innerHTML = userEmail;
 
     //Para tener una nueva llave en la colección infoBip
     const newNumberKey = firebase.database().ref().child('infoBip').push().key;
 
     firebase.database().ref(`infoBip/${newNumberKey}`).set({
-      num: BipNumber
+      num: BipNumber,
+      email:userEmail
     });
     numberOfBip.value = '';
     alert('Tarjeta guardada con éxito');

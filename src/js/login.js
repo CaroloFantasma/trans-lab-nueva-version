@@ -6,6 +6,10 @@ window.onload = () => {
       document.getElementById('screenTwo').style.display = 'block';
       document.getElementById('menuNav').style.display = 'block';
       console.log("User > " + JSON.stringify(user));
+      let uid = user.uid;
+      let email = firebase.auth().currentUser.email;
+      console.log(email);
+      showEmail.innerHTML = email;
     } else {
       //No estamos logueados
       document.getElementById('screenOne').style.display = 'block';
@@ -55,4 +59,50 @@ function logOut() {
       console.log("Ha cerrado sesión");
     })
     .catch();
+}
+
+//Firebase
+firebase.database().ref('dataBip')
+  .limitToLast(10) //filtro para no obtener todos las tarjetas
+  .once('value')
+  .then((bipData) => {
+    console.log("Mensajes >" + JSON.stringify(dataBip));
+  })
+  .catch(() => {
+  });
+
+firebase.database().ref('dataBip')
+  .limitToLast(10)
+  .on('child_added', (newCard) => {
+    cardOptions.innerHTML += `
+    <p>${newCard.val().num}</p>
+          `;
+  });
+
+  firebase.database().ref('dataBip')
+  .limitToLast(1)
+  .on('child_added', (newCard) => {
+    showEmail.innerHTML += `
+    <p>${newCard.val().email}</p>
+          `;
+  });
+
+// Firebase Database
+// Guarda  la info en database, llamada infoBip
+function addCard() {
+  if (numberOfBip.value.length === 0 || numberOfBip.value.length > 8) {
+    alert('Debe ingresar información válida')
+  } else {
+
+    const BipNumber = numberOfBip.value;  
+
+    //Para tener una nueva llave en la colección infoBip
+    const newNumberKey = firebase.database().ref().child('infoBip').push().key;
+
+    firebase.database().ref(`infoBip/${newNumberKey}`).set({
+      num: BipNumber,
+    });
+    BipNumber.value = '';
+    alert('Tarjeta guardada con éxito');
+  }
 }
