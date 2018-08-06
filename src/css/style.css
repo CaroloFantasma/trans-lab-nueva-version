@@ -220,6 +220,10 @@ padding: 0%;
   text-align: center;
 }
 
+#cardNumberBip {
+  width: 90%;
+}
+
 #inputPrice {
   width: 49%;
   display: inline-block;
@@ -237,6 +241,18 @@ padding: 0%;
   width: 40%;
   padding: 0%;
   font-size: 16px;
+}
+
+#dataBipContainer {
+  margin-top: 10%;
+  margin-bottom: 30%;
+}
+
+.totalBalance {
+  background-color: #F6A800;
+  color: white;
+  width: 100%;
+  margin-left: 20%;
 }
 
 #tarifa {

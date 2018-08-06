@@ -26,15 +26,15 @@ window.onload = () => {
 function signUp() {
   const userEmail = document.getElementById('userEmail').value;
   const userPassword = document.getElementById('inputPassword').value;
-  if(userPassword.length <= 8){
-  firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
-    .then(() => {
-      console.log("Usuario registrado");
-    })
-    .catch((error) => {
-      console.log("Error de firebase > " + error.code);
-      console.log("Error de firebase, mensaje > " + error.message);
-    });
+  if (userPassword.length <= 8) {
+    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
+      .then(() => {
+        console.log("Usuario registrado");
+      })
+      .catch((error) => {
+        console.log("Error de firebase > " + error.code);
+        console.log("Error de firebase, mensaje > " + error.message);
+      });
   } else {
     alert('Excede los 8 números permitidos');
   }
@@ -86,9 +86,8 @@ function addCard() {
     alert('Debe ingresar información válida')
   } else {
 
-    const BipNumber = numberOfBip.value;  
+    const BipNumber = numberOfBip.value;
     console.log(BipNumber);
-    
 
     //Para tener una nueva llave en la colección infoBip
     const newNumberKey = firebase.database().ref().child('infoBip').push().key;
