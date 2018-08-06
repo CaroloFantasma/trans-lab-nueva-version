@@ -55,6 +55,8 @@ p{
 
 #register {
   color: #F6A800;
+  background-color: transparent;
+  border: none;
 }
 
 #userEmail {

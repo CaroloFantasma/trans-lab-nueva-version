@@ -22,6 +22,7 @@ window.onload = () => {
 function signUp() {
   const userEmail = document.getElementById('userEmail').value;
   const userPassword = document.getElementById('inputPassword').value;
+  if(userPassword.length <= 8){
   firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
     .then(() => {
       console.log("Usuario registrado");
@@ -30,6 +31,9 @@ function signUp() {
       console.log("Error de firebase > " + error.code);
       console.log("Error de firebase, mensaje > " + error.message);
     });
+  } else {
+    alert('Excede los 8 números permitidos');
+  }
 }
 
 function logIn() {
