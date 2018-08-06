@@ -120,12 +120,23 @@ padding: 0%;
   background-color: rgb(223, 213, 213);
 }
 
+#inputCardTwo {
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-bottom: 40%;
+}
+
 #btnCard {
   background-color: #F6A800;
   color: white;
   width: 80%;
   margin-top: 3%;
   margin-left: 10%;
+}
+
+#btnBalance {
+  background-color: #F6A800;
 }
 
 .menuUser {

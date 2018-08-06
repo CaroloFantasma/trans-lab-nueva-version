@@ -79,14 +79,6 @@ firebase.database().ref('dataBip')
           `;
   });
 
-  firebase.database().ref('dataBip')
-  .limitToLast(1)
-  .on('child_added', (newCard) => {
-    showEmail.innerHTML += `
-    <p>${newCard.val().email}</p>
-          `;
-  });
-
 // Firebase Database
 // Guarda  la info en database, llamada infoBip
 function addCard() {
@@ -95,6 +87,8 @@ function addCard() {
   } else {
 
     const BipNumber = numberOfBip.value;  
+    console.log(BipNumber);
+    
 
     //Para tener una nueva llave en la colección infoBip
     const newNumberKey = firebase.database().ref().child('infoBip').push().key;

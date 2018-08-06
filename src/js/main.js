@@ -1,16 +1,3 @@
-
-let infoBip = null;
-
-fetch('http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=20338150')
-  .then(response => response.json())
-  .then(data => {
-    infoBip = data;
-    console.log(data);
-  })
-  .catch(error => {
-    console.error("No fue posible completar la solicitud.");
-  });
-
 //Firebase
 firebase.database().ref('dataBip')
   .limitToLast(10) //filtro para no obtener todos las tarjetas
