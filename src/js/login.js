@@ -63,7 +63,7 @@ function logOut() {
 }
 
   //Firebase
-  firebase.database().ref('dataBip')
+  firebase.database().ref('infoBip')
     .limitToLast(10) //filtro para no obtener todas las tarjetas
     .once('value')
     .then((bipData) => {
@@ -79,13 +79,13 @@ function logOut() {
       alert('Debe ingresar 8 números')
     } else {
   
-      const bipNumber = numberOfBip.value;
+      let bipNumber = numberOfBip.value;
       console.log(bipNumber);
       const emailUser = userEmail.value;
       console.log(emailUser);
   
       //Para tener una nueva llave en la colección infoBip
-      const newNumberKey = firebase.database().ref().child('dataBip').push().key;
+      const newNumberKey = firebase.database().ref().child('infoBip').push().key;
       firebase.database().ref(`infoBip/${newNumberKey}`).set({
         num: bipNumber,
         userName: emailUser
@@ -95,8 +95,7 @@ function logOut() {
       alert('Tarjeta guardada con éxito');
     }
   
-
-  firebase.database().ref('dataBip')
+  firebase.database().ref('infoBip')
     .limitToLast(10)
     .on('child_added', (newCard) => {
       cardOptions.innerHTML += `
