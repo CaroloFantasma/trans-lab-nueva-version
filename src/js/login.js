@@ -62,41 +62,57 @@ function logOut() {
     .catch();
 }
 
-//Firebase
-firebase.database().ref('dataBip')
-  .limitToLast(10) //filtro para no obtener todos las tarjetas
-  .once('value')
-  .then((bipData) => {
-    console.log("Mensajes >" + JSON.stringify(dataBip));
-  })
-  .catch(() => {
-  });
-
-firebase.database().ref('dataBip')
-  .limitToLast(10)
-  .on('child_added', (newCard) => {
-    cardOptions.innerHTML += `
-    <p>${newCard.val().num}</p>
-          `;
-  });
-
-// Firebase Database
-// Guarda  la info en database, llamada infoBip
-function addCard() {
-  if (numberOfBip.value.length === 0 || numberOfBip.value.length > 8) {
-    alert('Debe ingresar información válida')
-  } else {
-
-    const BipNumber = numberOfBip.value;
-    console.log(BipNumber);
-
-    //Para tener una nueva llave en la colección infoBip
-    const newNumberKey = firebase.database().ref().child('infoBip').push().key;
-
-    firebase.database().ref(`infoBip/${newNumberKey}`).set({
-      num: BipNumber,
+  //Firebase
+  firebase.database().ref('dataBip')
+    .limitToLast(10) //filtro para no obtener todas las tarjetas
+    .once('value')
+    .then((bipData) => {
+      console.log("Tarjetas >" + JSON.stringify(dataBip));
+    })
+    .catch(() => {
     });
-    BipNumber.value = '';
-    alert('Tarjeta guardada con éxito');
-  }
+  
+  // Firebase Database
+  // Guarda  la info en database, llamada infoBip
+  function addCard() {
+    if (numberOfBip.value.length === 0 || numberOfBip.value.length > 8) {
+      alert('Debe ingresar 8 números')
+    } else {
+  
+      const bipNumber = numberOfBip.value;
+      console.log(bipNumber);
+      const emailUser = userEmail.value;
+      console.log(emailUser);
+  
+      //Para tener una nueva llave en la colección infoBip
+      const newNumberKey = firebase.database().ref().child('dataBip').push().key;
+      firebase.database().ref(`infoBip/${newNumberKey}`).set({
+        num: bipNumber,
+        userName: emailUser
+      });
+  
+      bipNumber.value = '';
+      alert('Tarjeta guardada con éxito');
+    }
+  
+
+  firebase.database().ref('dataBip')
+    .limitToLast(10)
+    .on('child_added', (newCard) => {
+      cardOptions.innerHTML += `
+      <p>${newCard.val().num}</p>
+            `;
+    
+    dataBipContainer.innerHTML += `
+    <select>
+    <option>${newCard.val().num}</option>
+    </select>
+    `
+
+    selectCard.innerHTML += `
+    <select>
+    <option>${newCard.val().num}</option>
+    </select>
+    `
+  });
 }

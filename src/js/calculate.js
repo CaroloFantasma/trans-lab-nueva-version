@@ -3,7 +3,7 @@
 btnBalance.addEventListener('click', () => {
   if (cardNumberBip.value.length === 8) {
   let bipNumber = cardNumberBip.value;
-fetch(`https://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNumber}`)
+fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNumber}`)
   .then(response => response.json())
   .then(data => {
     infoBip = data;
