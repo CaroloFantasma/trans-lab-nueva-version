@@ -199,20 +199,20 @@
         <span> Tarjeta </span>
         <div class="input-group mb-3">
           <select class="Seleccione su tarjeta" id="inputPrice">
-            <option selected>Elija tarifa</option>
-            <option value="1">760</option>
-            <option value="2">680</option>
-            <option value="3">630</option>
+            <option selected>Seleccione tarifa</option>
+            <option value="760">Horario alto</option>
+            <option value="680">Horario medio</option>
+            <option value="630">Horario bajo</option>
           </select>
           <select class="Seleccione su tarjeta" id="selectCard">
           </select>
         </div>
       </div>
-
       <div class="col-sm-10">
         <button type="button" id="btnCalculate" class="btn btn-secondary btn-lg">Calcular</button>
       </div>
-
+      <div id="price"></div>
+      <div id="total"></div>
     </div>
   </div>
   <!-- Fin pantalla calcular saldo -->
@@ -226,20 +226,14 @@
       <div class="col-sm-10">
         <input type="number" id="cardNumberBip" placeholder="Ingrese número de tarjeta">
       </div>
-      <div id="dataBipContainer"></div>
-      <!-- <div class="input-group mb-3">
-          <select class="Seleccione su tarjeta" id="inputCardTwo">
-            <option selected>Elija tarjeta</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-          </select>
-        </div> -->
-
+      <select class="Seleccione su tarjeta" id="dataBipContainer">
+      </select>
       <div class="col-sm-10">
         <button type="button" id="btnBalance" class="btn btn-secondary btn-lg">Ver saldo</button>
       </div>
+      <div id="dataContainer">
 
+      </div>
     </div>
   </div>
   <!-- Fin pantalla ver saldo -->
@@ -268,7 +262,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Javascript -->
-  <script src="js/main.js"></script>
+  <script src="js/balance.js"></script>
   <script src="js/app.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/profile.js"></script>
