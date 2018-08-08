@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-request">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
@@ -90,7 +91,7 @@
         <div class="col-sm-11">
           <button class="ppalMenu" onclick="showProfile()" id="showProfile">PERFIL</button>
         </div>
-        <div class="col-sm-11">
+        <div class="col-sm-11 pad">
           <button class="ppalMenu" onclick="showQuestions()" id="showQuestions">PREGUNTAS</button>
         </div>
       </div>
@@ -104,7 +105,7 @@
       <!-- Second row start -->
       <div class="col-sm-12 rowUserimg2">
         <div>
-          <img src="..." alt="..." class="rounded-circle" id="userImg" onclick="addPhoto()">
+          <img src="" alt="..." class="rounded-circle" id="userImg" onclick="addPhoto()">
         </div>
         <input id="photoFileSelector" type="file">
         <input id="sendPhoto" type="button" onclick="sendPhotoToStorage()" value="Subir foto">
@@ -197,25 +198,21 @@
         <span id="tarifa">Tarifa</span>
         <span> Tarjeta </span>
         <div class="input-group mb-3">
-          <select class="Seleccione su tarjeta" id="inputPrice">
-            <option selected>Elija tarifa</option>
-            <option value="1">760</option>
-            <option value="2">680</option>
-            <option value="3">630</option>
+          <select class="Seleccione su tarjeta" id="selectionPrice">
+            <option selected>Seleccione tarifa</option>
+            <option value="760">Horario alto</option>
+            <option value="680">Horario medio</option>
+            <option value="630">Horario bajo</option>
           </select>
-          <select class="Seleccione su tarjeta" id="inputCard">
-            <option selected>Elija tarjeta</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
+          <select class="Seleccione su tarjeta" id="selectCard">
           </select>
         </div>
       </div>
-
       <div class="col-sm-10">
         <button type="button" id="btnCalculate" class="btn btn-secondary btn-lg">Calcular</button>
       </div>
-
+      <div id="price"></div>
+      <div id="totalResult"></div>
     </div>
   </div>
   <!-- Fin pantalla calcular saldo -->
@@ -229,20 +226,13 @@
       <div class="col-sm-10">
         <input type="number" id="cardNumberBip" placeholder="Ingrese número de tarjeta">
       </div>
-      <div id="dataBipContainer"></div>
-      <!-- <div class="input-group mb-3">
-          <select class="Seleccione su tarjeta" id="inputCardTwo">
-            <option selected>Elija tarjeta</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-          </select>
-        </div> -->
-
+      <select class="Seleccione su tarjeta" id="dataBipContainer">
+      </select>
       <div class="col-sm-10">
         <button type="button" id="btnBalance" class="btn btn-secondary btn-lg">Ver saldo</button>
       </div>
-
+      <div id="dataContainer">
+      </div>
     </div>
   </div>
   <!-- Fin pantalla ver saldo -->
@@ -271,7 +261,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Javascript -->
-  <script src="js/main.js"></script>
+  <script src="js/balance.js"></script>
   <script src="js/app.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/profile.js"></script>

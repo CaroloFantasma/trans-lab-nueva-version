@@ -9,23 +9,33 @@ body {
 
 #screenTwo{
   display: none;
+  padding-bottom: 100%;
+  background-color: rgb(199, 200, 201);
 }
 
 #screenThree{
   display: none;
+  padding-bottom: 100%;
+  background-color: rgb(199, 200, 201);
 }
 
 #screenFour{
   display: none;
+  padding-bottom: 100%;
+  background-color: rgb(199, 200, 201);
 }
 
 #screenFive{
   display: none;
   background-color: rgb(199, 200, 201);
+  padding-bottom: 100%;
+  background-color: rgb(199, 200, 201);
 }
 
 #screenSix{
   display: none;
+  padding-bottom: 100%;
+  background-color: rgb(199, 200, 201);
 }
 
 #firstImage {
@@ -106,6 +116,11 @@ padding: 0%;
   color: white;
 }
 
+#showBalance {
+  margin-top: 40%;
+}
+
+
 .userName {
   width: 80%;
   margin-top: 3%;
@@ -115,7 +130,10 @@ padding: 0%;
 .cardNumber {
   width: 80%;
   margin-top: 3%;
-  border: none;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-bottom: black;
   margin-left: 10%;
   background-color: rgb(223, 213, 213);
 }
@@ -245,28 +263,81 @@ padding: 0%;
 
 #dataBipContainer {
   margin-top: 10%;
-  margin-bottom: 30%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  width: 80%;
 }
 
-.totalBalance {
+#dataContainer {
   background-color: #F6A800;
-  color: white;
-  width: 100%;
-  margin-left: 20%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 15%;
+  width: 70%;
+  color: #fafafa;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#balanceCard {
+  background-color: rgb(61, 58, 58);
+  color: #fafafa;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 #tarifa {
   margin-right: 40%;
 }
 
-#cardoption {
+#newCardNumber {
   margin-right: 10%;
+  background-color: #fafafa;
+  width: 90%;
+  color: black;
+  margin-left: 5%;
 }
 
 #inputMoney {
   width: 100%;
 }
 
+#price {
+background-color: #F6A800;
+width: 80%;
+color: #fafafa;
+margin-top: 5%;
+margin-bottom: 5%;
+margin-left: 10%;
+font-size: 25px;
+font-weight: bold
+
+}
+
+#totalResult {
+  background-color: #F6A800;
+  width: 80%;
+  color: #fafafa;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 10%;
+  font-size: 25px;
+  font-weight: bold
+}
+
+#selectionPrice {
+  margin-right: 5%;
+}
+
+#selectCard {
+  width: 45%;
+}
+
+.finalResult {
+  background-color:  rgb(61, 58, 58);;
+  width: 100%;
+  font-size: 15px;
+}
 
 @media(min-width: 768px){ /* esta medida se encuentra en bootstrap-> overview-> responsive breakpoints */
   .menu{
