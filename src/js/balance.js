@@ -18,10 +18,11 @@ fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNumber
   });
   });
 
-inputPrice.addEventListener('click', () => {
-  let selectedPrice = document.getElementById('inputPrice');
-  let priceValue = selectedPrice[selectedPrice.selectedIndex];
-  price.innerHTML = '$' + priceValue;
+  selectionPrice.addEventListener('click', () => {
+  let selectedPrice = document.getElementById('selectionPrice');
+  let priceValue = selectedPrice[selectedPrice.selectedIndex].value;
+  let lastPrice = price.innerHTML = '$' + priceValue;
+  
 });
 
 btnCalculate.addEventListener('click', () => {
@@ -31,7 +32,7 @@ btnCalculate.addEventListener('click', () => {
   fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNun || selectedChoice}`)
   .then(response => response.json())
   .then(data => {
-      infoBip = data;;
+    dataBipCard = data;;
   })
   .catch(error => {
     console.error("No fue posible completar la solicitud.");
@@ -43,7 +44,7 @@ let bipCardTotal = (data) => {
     let regex = /(\d+)/g;
     const bipBalance = data.saldoTarjeta.match(regex)
     const finalBipBalance = parseInt(bipBalance[0] + bipBalance[1]);
-    const selectedPrice = document.getElementById('inputPrice');
+    const selectedPrice = document.getElementById('selectionPrice');
     let valueChoice = selectedPrice[selectedPrice.selectedIndex].value;
     const finalTotal = finalBipBalance - valueChoice;
     console.log(finalTotal);
