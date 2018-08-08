@@ -9,8 +9,7 @@ btnBalance.addEventListener('click', () => {
       infoBip = data;
       balanceInfoBip = data.saldoTarjeta;
       dataContainer.innerHTML = `
-    <p class="totalBalance">Saldo total: ${data['saldoTarjeta']}</p>
-    <p class="totalBalance">Fecha saldo: ${data['fechaSaldo']}</p>
+     <p id="balanceCard">Saldo total</p>  <p class="totalBalance"> ${data['saldoTarjeta']}</p>
     `;
     })
     .catch(error => {

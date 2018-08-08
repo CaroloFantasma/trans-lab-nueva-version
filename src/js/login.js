@@ -100,7 +100,7 @@ function addCard() {
     .limitToLast(10)
     .on('child_added', (newCard) => {
       cardOptions.innerHTML += `
-      <p>${newCard.val().num}</p>
+      <p id = newCardNumber>${newCard.val().num}</p>
             `;
 
       dataBipContainer.innerHTML += `

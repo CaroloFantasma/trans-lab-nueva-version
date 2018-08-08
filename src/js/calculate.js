@@ -2,7 +2,7 @@
 selectionPrice.addEventListener('click', () => {
   let selectedPrice = document.getElementById('selectionPrice');
   let priceValue = selectedPrice[selectedPrice.selectedIndex].value;
-  let lastPrice = price.innerHTML = '$' + priceValue;
+  let lastPrice = price.innerHTML = `<P class="finalResult">Costo pasaje</p>` + '$' + priceValue;
 });
 
 //Fetch
@@ -22,7 +22,7 @@ btnCalculate.addEventListener('click', () => {
       const selectedPrice = document.getElementById('selectionPrice').value;
       const finalTotal = finalBipBalance - selectedPrice;
       console.log(finalTotal);
-      totalResult.innerHTML = '$' + finalTotal;
+      totalResult.innerHTML = `<P class="finalResult">Saldo final</p>` + '$' + finalTotal;
     })
     .catch(error => {
       console.error("No fue posible completar la solicitud.");
