@@ -3,7 +3,7 @@
 btnBalance.addEventListener('click', () => {
   let bipNumber = cardNumberBip.value;
   let dataBip = dataBipContainer.value;
-  fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNumber || dataBip}`)
+  fetch(`https://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNumber || dataBip}`)
     .then(response => response.json())
     .then(data => {
       infoBip = data;
