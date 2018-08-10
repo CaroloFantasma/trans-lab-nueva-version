@@ -11,11 +11,7 @@ firebase.database().ref('infoBip')
 // Firebase Database
 // Guarda  la info en database, llamada infoBip
 function addCard() {
-  if (numberOfBip.value.length === 0 || numberOfBip.value.length > 8) {
-    alert('Debe ingresar 8 números')
-  } else {
-
-    let bipNumber = numberOfBip.value;
+  let bipNumber = numberOfBip.value;
     console.log(bipNumber);
     const emailUser = userEmail.value;
     console.log(emailUser);
@@ -30,7 +26,6 @@ function addCard() {
     bipNumber.value = '';
     alert('Tarjeta guardada con éxito');
   }
-}
 
   firebase.database().ref('infoBip')
     .limitToLast(10)
