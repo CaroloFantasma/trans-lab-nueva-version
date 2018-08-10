@@ -1,5 +1,4 @@
 window.validateCard = (addCard) => {
-  console.log(addCard);
   if (addCard.toString().length <= 8) {
     if (isNaN(addCard) == false) {
       return true;
@@ -12,7 +11,6 @@ window.validateCard = (addCard) => {
 }
 
 window.calculate = (result) => {
-  console.log(result);
   const balance = 800;
   const price = 760;
   if (balance - price === 40) {
