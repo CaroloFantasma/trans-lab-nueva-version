@@ -6,7 +6,7 @@ selectionPrice.addEventListener('click', () => {
 });
 
 //Fetch
-btnCalculate.addEventListener('click', () => {
+calculate.addEventListener('click', () => {
   let bipNun = cardNumber.value;
   let selectedChoice = selectCard.value;
   fetch(`https://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNun || selectedChoice}`)

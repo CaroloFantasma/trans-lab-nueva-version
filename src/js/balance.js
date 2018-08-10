@@ -1,6 +1,6 @@
 //Fetch, muestra saldo de tarjeta bip ingresada o seleccionada
 
-btnBalance.addEventListener('click', () => {
+validateCard.addEventListener('click', () => {
   let bipNumber = cardNumberBip.value;
   let dataBip = dataBipContainer.value;
   fetch(`https://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=${bipNumber || dataBip}`)

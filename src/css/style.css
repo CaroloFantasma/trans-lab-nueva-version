@@ -145,7 +145,7 @@ padding: 0%;
   margin-bottom: 40%;
 }
 
-#btnCard {
+#validateCard {
   background-color: #F6A800;
   color: white;
   width: 80%;
@@ -253,7 +253,7 @@ padding: 0%;
   /* margin-right: 2%; */
 }
 
-#btnCalculate {
+#calculate {
   background-color: #F6A800;
   color: white;
   width: 40%;

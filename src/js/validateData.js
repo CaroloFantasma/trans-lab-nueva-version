@@ -1,7 +1,7 @@
-window.validateCard = (bipNumber) => {
-  console.log(bipNumber);
-  if (bipNumber.toString().length <= 8) {
-    if (isNaN(bipNumber) == false) {
+window.validateCard = (addCard) => {
+  console.log(addCard);
+  if (addCard.toString().length <= 8) {
+    if (isNaN(addCard) == false) {
       return true;
     } else {
       return false;
@@ -20,5 +20,4 @@ window.calculate = (result) => {
   } else {
     return false;
   }
-
 }
